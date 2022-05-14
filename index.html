@@ -1,48 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        let requiredRange1 = [null, 200];
-        let requiredRange2 = [100, 350];
-        let requiredRange3 = [56, null];
+      let requiredRange1 = [null, 200];
+      let requiredRange2 = [100, 350];
+      let requiredRange3 = [56, null];
 
-        //дополнительно(без параметров)
-        let requiredRange4 = [null,null]
-        
-        
-        let courses = [
-            { name: "Courses in England", prices: [0, 100] }, 
-            { name: "Courses in Germany", prices: [500, null] }, 
-            { name: "Courses in Italy", prices: [100, 200] }, 
-            { name: "Courses in Russia", prices: [null, 400] },
-            { name: "Courses in China", prices: [50, 250] },
-            { name: "Courses in USA", prices: [200, null] },
-            { name: "Courses in Kazakhstan", prices: [56, 324] },
-            { name: "Courses in France", prices: [null, null] },
-        ];
-        
-            // фильтрация по параметрам
-            const filterCourses =([min,max])=>courses.filter(course=>(course.prices[0] >= min) && ((course.prices[1] || Infinity) <= (max || Infinity)))
-            
-        
-            //Сортировка по цене 
-            const sortCourses =(data)=>data.sort(sortfunction)
-            const sortfunction = (a, b) => (a.prices[0]) - (b.prices[0])
-        
-        
-            //Вывод
-            console.log(requiredRange1);
-            console.log(requiredRange2);
-            console.log(requiredRange3);
-            console.log(requiredRange4);
-            console.log('');
-            console.log('Отсортировано по цене',sortCourses(courses))
-            </script>
-</body>
+      //дополнительно(без параметров)
+      let requiredRange4 = [null, null];
+
+      let courses = [
+        { name: "Courses in England", prices: [0, 100] },
+        { name: "Courses in Germany", prices: [500, null] },
+        { name: "Courses in Italy", prices: [100, 200] },
+        { name: "Courses in Russia", prices: [null, 400] },
+        { name: "Courses in China", prices: [50, 250] },
+        { name: "Courses in USA", prices: [200, null] },
+        { name: "Courses in Kazakhstan", prices: [56, 324] },
+        { name: "Courses in France", prices: [null, null] },
+      ];
+
+      // фильтрация по параметрам
+      const filterCourses = ([min, max]) =>
+        courses.filter(
+          (course) =>
+            course.prices[0] >= min &&
+            (course.prices[1] || Infinity) <= (max || Infinity)
+        );
+
+      //Сортировка по цене
+      const sortCourses = (data) => data.sort(sortfunction);
+      const sortfunction = (a, b) => a.prices[0] - b.prices[0];
+
+      //Вывод
+      console.log(filterCourses(requiredRange1));
+      console.log(filterCourses(requiredRange2));
+      console.log(filterCourses(requiredRange3));
+      console.log(filterCourses(requiredRange4));
+
+      console.log("");
+      console.log("Отсортировано по цене", sortCourses(courses));
+    </script>
+  </body>
 </html>
